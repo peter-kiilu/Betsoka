@@ -1,8 +1,11 @@
 import axios from "axios";
 
-const API = axios.create({
-  baseURL: "http://localhost:8000/api",
-});
+// In production (same origin), use relative path. In dev, use localhost:8000
+const baseURL = import.meta.env.DEV
+  ? "http://localhost:8000/api"
+  : "/api";
+
+const API = axios.create({ baseURL });
 
 export const getStatus = () => API.get("/status");
 export const getFeatures = () => API.get("/features");

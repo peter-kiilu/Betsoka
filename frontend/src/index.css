@@ -653,7 +653,6 @@ body {
 
 /* ─── Responsive Design ────────────────── */
 
-
 /* Mobile First - Small phones (< 480px) */
 @media (max-width: 480px) {
   /* Show mobile menu controls */
@@ -1314,8 +1313,13 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 /* ─── H2H Modal ────────────────────────── */
@@ -1442,9 +1446,15 @@ body {
   margin-bottom: 0.2rem;
 }
 
-.stat-item.win .stat-value { color: var(--win); }
-.stat-item.draw .stat-value { color: var(--draw); }
-.stat-item.loss .stat-value { color: var(--loss); }
+.stat-item.win .stat-value {
+  color: var(--win);
+}
+.stat-item.draw .stat-value {
+  color: var(--draw);
+}
+.stat-item.loss .stat-value {
+  color: var(--loss);
+}
 
 .stat-label {
   font-size: 0.72rem;
@@ -1483,9 +1493,15 @@ body {
   background: var(--bg-card-hover);
 }
 
-.h2h-match.win { border-left-color: var(--win); }
-.h2h-match.draw { border-left-color: var(--draw); }
-.h2h-match.loss { border-left-color: var(--loss); }
+.h2h-match.win {
+  border-left-color: var(--win);
+}
+.h2h-match.draw {
+  border-left-color: var(--draw);
+}
+.h2h-match.loss {
+  border-left-color: var(--loss);
+}
 
 .h2h-match-header {
   display: flex;
@@ -1530,4 +1546,309 @@ body {
   color: var(--text-primary);
   min-width: 60px;
   text-align: center;
+}
+
+/* ─── Standings Table ──────────────────── */
+.standings-legend {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.legend-color.ucl {
+  background: #2563eb;
+}
+.legend-color.uel {
+  background: #f97316;
+}
+.legend-color.rel {
+  background: #ef4444;
+}
+
+.standings-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.standings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.standings-table thead tr {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--border);
+}
+
+.standings-table th {
+  padding: 0.75rem 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.standings-table th.col-team {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.standings-table td {
+  padding: 0.65rem 0.6rem;
+  text-align: center;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(46, 46, 74, 0.3);
+  font-variant-numeric: tabular-nums;
+}
+
+.standings-table tbody tr {
+  transition: background 0.15s ease;
+  position: relative;
+}
+
+.standings-table tbody tr:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Zone highlighting — left border accent */
+.standings-table tbody tr.zone-ucl {
+  border-left: 3px solid #2563eb;
+}
+
+.standings-table tbody tr.zone-uel {
+  border-left: 3px solid #f97316;
+}
+
+.standings-table tbody tr.zone-rel {
+  border-left: 3px solid #ef4444;
+}
+
+.standings-table tbody tr:not(.zone-ucl):not(.zone-uel):not(.zone-rel) {
+  border-left: 3px solid transparent;
+}
+
+/* Position column */
+.col-pos {
+  width: 36px;
+}
+
+.pos-number {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.zone-ucl .pos-number {
+  color: #60a5fa;
+}
+.zone-uel .pos-number {
+  color: #fb923c;
+}
+.zone-rel .pos-number {
+  color: #f87171;
+}
+
+/* Team column */
+.col-team {
+  text-align: left !important;
+  padding-left: 1rem !important;
+}
+
+.standings-team-info {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.standings-team-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.standings-team-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.standings-team-short {
+  display: none;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Stat columns */
+.col-stat {
+  width: 40px;
+  font-size: 0.85rem;
+}
+
+/* Goal difference */
+.gd-positive {
+  color: var(--win);
+  font-weight: 600;
+}
+
+.gd-negative {
+  color: var(--loss);
+  font-weight: 600;
+}
+
+/* Points column */
+.col-pts {
+  width: 48px;
+}
+
+.pts-value {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: rgba(108, 99, 255, 0.1);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+/* Form column */
+.col-form {
+  width: 130px;
+}
+
+.form-dots {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.form-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0;
+}
+
+.form-dot.win {
+  background: var(--win);
+}
+
+.form-dot.draw {
+  background: var(--draw);
+  color: #1a1a2e;
+}
+
+.form-dot.loss {
+  background: var(--loss);
+}
+
+/* ─── Standings Responsive ─────────────── */
+@media (max-width: 480px) {
+  .standings-table {
+    font-size: 0.78rem;
+  }
+
+  .standings-table th {
+    padding: 0.6rem 0.3rem;
+    font-size: 0.62rem;
+  }
+
+  .standings-table td {
+    padding: 0.55rem 0.3rem;
+  }
+
+  .standings-table .hide-mobile {
+    display: none;
+  }
+
+  .standings-team-name {
+    display: none;
+  }
+
+  .standings-team-short {
+    display: inline;
+    font-size: 0.8rem;
+  }
+
+  .standings-team-logo {
+    width: 22px;
+    height: 22px;
+  }
+
+  .standings-team-info {
+    gap: 0.4rem;
+  }
+
+  .col-stat {
+    width: 28px;
+    font-size: 0.78rem;
+  }
+
+  .pts-value {
+    font-size: 0.82rem;
+    padding: 0.15rem 0.4rem;
+  }
+
+  .standings-legend {
+    gap: 0.8rem;
+  }
+
+  .legend-item {
+    font-size: 0.68rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .standings-table th {
+    padding: 0.65rem 0.4rem;
+    font-size: 0.65rem;
+  }
+
+  .standings-table td {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .standings-team-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .standings-table .hide-mobile {
+    display: none;
+  }
+
+  .standings-team-name {
+    display: none;
+  }
+
+  .standings-team-short {
+    display: inline;
+  }
 }

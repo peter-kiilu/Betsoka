@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
-import { LayoutDashboard, Target, BarChart3, Info, Zap, Brain, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Trophy, Target, BarChart3, Info, Zap, Brain, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Sidebar() {
@@ -39,6 +39,9 @@ export default function Sidebar() {
           <ul className="sidebar-nav">
             <li><NavLink to="/" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
               <LayoutDashboard size={18} /> Dashboard
+            </NavLink></li>
+            <li><NavLink to="/standings" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
+              <Trophy size={18} /> Standings
             </NavLink></li>
             <li><NavLink to="/predictions" className={({ isActive }) => isActive ? 'active' : ''} onClick={closeMobileMenu}>
               <Target size={18} /> Predictions

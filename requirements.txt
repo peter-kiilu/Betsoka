@@ -1,9 +1,7 @@
-streamlit
 pandas
 numpy
 scikit-learn
-tensorflow
-plotly
+tensorflow-cpu
 joblib
 fastapi
 uvicorn[standard]

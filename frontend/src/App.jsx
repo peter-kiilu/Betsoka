@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Predictions from './pages/Predictions';
 import Analytics from './pages/Analytics';
+import Standings from './pages/Standings';
 import About from './pages/About';
 import { AppProvider } from './context/AppContext';
 import './index.css';
@@ -16,6 +17,7 @@ export default function App() {
           <main className="main-content">
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/standings" element={<Standings />} />
               <Route path="/predictions" element={<Predictions />} />
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/about" element={<About />} />
